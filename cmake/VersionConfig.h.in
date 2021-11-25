@@ -1,11 +1,23 @@
 #ifndef VERSION_CONFIG_H
 #define VERSION_CONFIG_H
 
-// define your version_libinterface
-#define VERSION_STR @SimpleSwitchBrowser_VERSION_STRING@
+#include <string>
 
-const char* getVersionStr(){
-  return @SimpleSwitchBrowser_VERSION_STRING@;
-}
+// define your version_libinterface
+#define VERSION_APP "@SimpleSwitchBrowser_VERSION_STRING@"
+#define VERSION_MAJOR_APP @SimpleSwitchBrowser_VERSION_MAJOR@
+#define VERSION_MINOR_APP @SimpleSwitchBrowser_VERSION_MINOR@
+#define VERSION_MICRO_APP @SimpleSwitchBrowser_VERSION_REVISION@
+#define VERSION_TAG_APP '@SimpleSwitchBrowser_VERSION_TAG@'
+
+
+// alternatively you could add your global method getLibInterfaceVersion here
+std::string getVersionStr(){ return VERSION_APP; }
+
+unsigned int getVersionMajor() { return VERSION_MAJOR_APP; }
+unsigned int getVersionMinor() { return VERSION_MINOR_APP; }
+unsigned int getVersionMicro() { return VERSION_MICRO_APP; }
+char getVersionTag(){ return VERSION_TAG_APP; }
+
 
 #endif // VERSION_CONFIG_H
