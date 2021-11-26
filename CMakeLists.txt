@@ -93,8 +93,21 @@ set(BOREALIS_DIR ${SUBMODULES_DIR}/borealis)
 #add_compile_definitions(BOREALIS_RESOURCES=\"romfs:/borealis/\")
 cmake_info("BOREALIS_DIR is ${BOREALIS_DIR}")
 set(BOREALIS_INC_DIR ${BOREALIS_DIR}/library/include)
-add_definitions( -D BRLS_RESOURCES=\\\"${PROJECT_SOURCE_DIR}/resources\\\" )
+
+set( BOREALIS_RESOURCES "romfs:/" )
+add_definitions( -D BRLS_RESOURCES=\\\"${BOREALIS_RESOURCES}\\\" )
+
 add_definitions( -D YG_ENABLE_EVENTS )
+
+
+# ------------------
+# Meta information about the app
+# ------------------
+set(APP_NAME SimpleSwitchBrowser)
+set(APP_TITLE ${APP_NAME})
+set(APP_AUTHOR "Nadrino")
+set(APP_ICON "${CMAKE_CURRENT_SOURCE_DIR}/assets/icon_gui.jpg")
+set(APP_ROMFS "${CMAKE_CURRENT_SOURCE_DIR}/resources")
 
 
 # ------------------
@@ -108,18 +121,6 @@ include_directories("${CMAKE_BINARY_DIR}/generated/")
 include_directories("${PORTLIBS}/include")
 include_directories("${LIBNX}/include")
 
-
-#
-#INCLUDES	:=	$(INCLUDES) \
-#$(current_dir)/include \
-#$(current_dir)/lib/extern/fmt/include \
-#$(current_dir)/lib/extern/yoga/src \
-#$(current_dir)/lib/extern/nanovg-deko3d/include \
-#$(current_dir)/lib/extern/tweeny/include \
-#$(current_dir)/include/borealis/extern \
-#$(current_dir)/include/borealis/extern/tinyxml2 \
-#$(addprefix $(current_dir)/lib/extern/switch-libpulsar/, $(PLSR_INCLUDES))
-
 include_directories("${BOREALIS_INC_DIR}")
 
 include_directories("${BOREALIS_DIR}/library/lib/extern/fmt/include")
@@ -129,54 +130,12 @@ include_directories("${BOREALIS_DIR}/library/lib/extern/tweeny/include")
 
 include_directories("${BOREALIS_INC_DIR}/borealis/extern")
 include_directories("${BOREALIS_INC_DIR}/borealis/extern/tinyxml2")
-#include_directories("${BOREALIS_INC_DIR}/borealis/extern/nanovg-gl") # Useful? -> COMPILE ERROR -> mismatch with the other one
 
 include_directories("${BOREALIS_DIR}/library/lib/extern/switch-libpulsar/include")
-#include_directories("${BOREALIS_DIR}/library/include/extern/tweeny/include")
-
-#include_directories("${CMAKE_CURRENT_SOURCE_DIR}/aliases") # borealis bad includes...
-#include_directories("${SUBMODULES_DIR}/libretro-common/include")
-
-#include_directories("${SUBMODULES_DIR}/fmt/include")
-
-#include_directories("${SUBMODULES_DIR}/switch-libpulsar/include")
-#include_directories("${SUBMODULES_DIR}/nanovg/src")
-#include_directories("${SUBMODULES_DIR}/nanovg-deko3d/include")
-#include_directories("${SUBMODULES_DIR}/json/include")
 
 
-#include_directories("${BOREALIS_DIR}/library/include/borealis/extern")
-#include_directories("${BOREALIS_DIR}/library/lib/extern/fmt/include")
-#include_directories("${BOREALIS_DIR}/library/lib/extern/nanovg-deko3d/include")
-#include_directories("${BOREALIS_DIR}/library/lib/extern/switch-libpulsar/include")
-#include_directories("${BOREALIS_DIR}/library/lib/extern/tweeny/include")
-#include_directories("${BOREALIS_DIR}/library/lib/extern/yoga/src")
 
 
-# Meta information about the app
-set(APP_NAME SimpleSwitchBrowser)
-set(APP_TITLE ${APP_NAME})
-set(APP_AUTHOR "Nadrino")
-set(APP_ICON "${CMAKE_CURRENT_SOURCE_DIR}/assets/icon_gui.jpg")
-set(APP_ROMFS "${CMAKE_CURRENT_SOURCE_DIR}/resources")
-
-
-#SOURCES		:=	$(SOURCES) \
-#$(current_dir)/lib/core \
-#$(current_dir)/lib/views \
-#$(current_dir)/lib/platforms/switch \
-#$(current_dir)/lib/extern/glad \
-#$(current_dir)/lib/extern/nanovg-deko3d/source \
-#$(current_dir)/lib/extern/nanovg-deko3d/source/framework \
-#$(current_dir)/lib/extern/nanovg-deko3d/shaders \
-#$(current_dir)/lib/extern/libretro-common/compat \
-#$(current_dir)/lib/extern/libretro-common/encodings \
-#$(current_dir)/lib/extern/libretro-common/features \
-#$(current_dir)/lib/extern/nxfmtwrapper \
-#$(current_dir)/lib/extern/yoga/src/yoga/event \
-#$(current_dir)/lib/extern/yoga/src/yoga \
-#$(current_dir)/lib/extern/tinyxml2/ \
-#$(addprefix $(current_dir)/lib/extern/switch-libpulsar/, $(PLSR_SOURCES))
 
 file(
         GLOB BOREALIS_SOURCE_FILES
@@ -218,32 +177,6 @@ file(
 
 file(GLOB SOURCE_FILES
         "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
-#        "${BOREALIS_DIR}/library/lib/core/*.cpp"
-
-#        "${SUBMODULES_DIR}/nanovg/src/*.c"
-#        "${SUBMODULES_DIR}/fmt/src/*.cc"
-#        "${BOREALIS_DIR}/library/lib/extern/fmt/src/*.cc"
-#        "${BOREALIS_DIR}/library/lib/extern/yoga/src/yoga/*.cpp"
-#        "${BOREALIS_DIR}/library/lib/extern/yoga/src/yoga/event/*.cpp"
-#        "${SUBMODULES_DIR}/yoga/yoga/Yoga.cpp"
-#        "${SUBMODULES_DIR}/tweeny/src/*.cc"
-
-#        "${BOREALIS_DIR}/library/lib/extern/*/*.c*"
-#        "${BOREALIS_DIR}/library/lib/extern/*/src/*.c*"
-#        "${BOREALIS_DIR}/library/lib/extern/*/source/*.c*"
-#        "${BOREALIS_DIR}/library/lib/extern/*/*/*.c*"
-
-#        "${BOREALIS_DIR}/library/lib/*.cpp"
-#        "${BOREALIS_DIR}/library/lib/extern/*/*.c"
-#        "${BOREALIS_DIR}/library/lib/extern/*/*/*.c"
-#        "${BOREALIS_DIR}/library/lib/*.cpp"
-#        "${BOREALIS_DIR}/library/lib/*.c"
-#        "${BOREALIS_DIR}/library/lib/extern/glad/*.c"
-#        "${BOREALIS_DIR}/library/lib/extern/nanovg/*.c"
-#        "${BOREALIS_DIR}/library/lib/extern/libretro-common/compat/*.c"
-#        "${BOREALIS_DIR}/library/lib/extern/libretro-common/encodings/*.c"
-#        "${BOREALIS_DIR}/library/lib/extern/libretro-common/features/*.c"
-#        "${BOREALIS_DIR}/library/lib/extern/fmt/src/*.cc"
 )
 
 add_executable(
@@ -257,7 +190,7 @@ target_link_libraries(
         switch::libnx
         -L/opt/devkitpro/portlibs/switch/lib
         -L/opt/devkitpro/libnx/lib
-        -lglfw3 -lEGL -lglapi -ldrm_nouveau -ldeko3d -lnx -lm
+        -lglfw3 -lEGL -lglapi -ldrm_nouveau -ldeko3d -lnx -lm #order of args mater
 )
 
 set_target_properties(
