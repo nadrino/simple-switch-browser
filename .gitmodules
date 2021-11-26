@@ -4,6 +4,9 @@
 [submodule "submodules/simple-cpp-logger"]
 	path = submodules/simple-cpp-logger
 	url = https://github.com/nadrino/simple-cpp-logger.git
+[submodule "submodules/tweeny"]
+	path = submodules/tweeny
+	url = https://github.com/mobius3/tweeny.git
 [submodule "submodules/borealis"]
 	path = submodules/borealis
-	url = https://github.com/natinusala/borealis.git
+	url = https://github.com/DarkMatterCore/borealis.git
