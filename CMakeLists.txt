@@ -169,15 +169,14 @@ file(
 
         # switch-libpulsar source files
         "${BOREALIS_DIR}/library/lib/extern/switch-libpulsar/src/*/*.c"
-
-        # fmt source files -> COMPILED WITH WRAPPER
-#        "${BOREALIS_DIR}/library/lib/extern/fmt/src/*.cc"
-
 )
 
 file(GLOB SOURCE_FILES
-        "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/src/BrowserApp.cpp"
 )
+
+cmake_info("Project files to build: ${SOURCE_FILES}")
 
 add_executable(
         ${APP_NAME}.elf
