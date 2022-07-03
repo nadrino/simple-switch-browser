@@ -143,8 +143,8 @@ function(add_nro_target target)
                 )
     endif()
 
-#    set(__NRO_COMMAND
-#            ${ELF2NRO} $<TARGET_FILE:${target}.elf> ${CMAKE_CURRENT_BINARY_DIR}/${target}.nro --nacp=${CMAKE_CURRENT_BINARY_DIR}/${target}.nacp --icon=${APP_ICON})
+    #    set(__NRO_COMMAND
+    #            ${ELF2NRO} $<TARGET_FILE:${target}.elf> ${CMAKE_CURRENT_BINARY_DIR}/${target}.nro --nacp=${CMAKE_CURRENT_BINARY_DIR}/${target}.nacp --icon=${APP_ICON})
 
     if (NOT ${CMAKE_CURRENT_BINARY_DIR}/${target}.nacp)
         add_nacp(${target}.nacp)
@@ -237,7 +237,7 @@ function(build_switch_binaries target)
     endif ()
 
     # Build the binaries
-#    add_nso_target(${target_we})
+    #    add_nso_target(${target_we})
     add_nro_target(${target_we})
 endfunction()
 
@@ -278,6 +278,6 @@ function(build_switch_ovl_binaries target)
     endif ()
 
     # Build the binaries
-#    add_nso_target(${target_we})
+    #    add_nso_target(${target_we})
     add_ovl_target(${target_we})
 endfunction()

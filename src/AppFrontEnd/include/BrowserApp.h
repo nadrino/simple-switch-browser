@@ -21,8 +21,6 @@ protected:
   void initializeApplet();
   void initializeBorealis();
 
-private:
-  bool _isInitialized_{false};
 
 };
 

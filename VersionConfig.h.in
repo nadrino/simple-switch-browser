@@ -1,0 +1,21 @@
+#ifndef VERSION_CONFIG_H
+#define VERSION_CONFIG_H
+
+#include "string"
+
+// define your version_libinterface
+#define VERSION_APP @APP_VERSION@
+#define VERSION_MAJOR_APP @VERSION_MAJOR@
+#define VERSION_MINOR_APP @VERSION_MINOR@
+#define VERSION_MICRO_APP @VERSION_MICRO@
+#define VERSION_TAG_APP @VERSION_TAG@
+
+namespace VersionConfig{
+  const char* getVersionStr(){ return "@APP_VERSION@"; }
+  unsigned int getVersionMajor() { return @VERSION_MAJOR@; }
+  unsigned int getVersionMinor() { return @VERSION_MINOR@; }
+  unsigned int getVersionMicro() { return @VERSION_MICRO@; }
+  const char* getVersionTag(){ return "@VERSION_TAG@"; }
+}
+
+#endif // VERSION_CONFIG_H
