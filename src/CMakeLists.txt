@@ -11,6 +11,7 @@ set( APP_ROMFS "${CMAKE_CURRENT_SOURCE_DIR}/resources")
 set( APP_SRC_FILES
         ${APP_SRC_DIR}/${APP_NAME}.cpp
         ${APP_SRC_DIR}/AppFrontEnd/src/BrowserApp.cpp
+        ${APP_SRC_DIR}/Frames/src/BrowserFrame.cpp
         )
 
 add_executable( ${APP_NAME}.elf
@@ -20,6 +21,7 @@ add_executable( ${APP_NAME}.elf
 
 target_include_directories( ${APP_NAME}.elf PUBLIC
         ${APP_SRC_DIR}/AppFrontEnd/include
+        ${APP_SRC_DIR}/Frames/include
         ${BOREALIS_DIR}/library/include
         )
 

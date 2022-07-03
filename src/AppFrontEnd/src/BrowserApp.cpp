@@ -23,7 +23,15 @@ void BrowserApp::initialize() {
 }
 
 void BrowserApp::run() {
+  LogInfo << "Running BrowserApp..." << std::endl;
   brls::Application::init("SimpleSwitchBrowser");
+
+
+  auto* browserFrame = new BrowserFrame{false, false};
+  brls::Application::pushView(browserFrame);
+  browserFrame->registerAction("", brls::Key::PLUS, []{return true;}, true);
+  browserFrame->updateActionHint(brls::Key::PLUS, ""); // make the change visible
+
   while( brls::Application::mainLoop() );
 }
 

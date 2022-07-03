@@ -5,6 +5,7 @@
 #ifndef SIMPLESWITCHBROWSER_BROWSERAPP_H
 #define SIMPLESWITCHBROWSER_BROWSERAPP_H
 
+#include "BrowserFrame.h"
 
 class BrowserApp {
 
@@ -12,15 +13,8 @@ public:
   BrowserApp();
   virtual ~BrowserApp();
 
-  void reset();
   void initialize();
-
   void run();
-
-protected:
-  void initializeApplet();
-  void initializeBorealis();
-
 
 };
 
