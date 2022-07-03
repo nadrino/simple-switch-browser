@@ -7,6 +7,3 @@
 [submodule "submodules/tweeny"]
 	path = submodules/tweeny
 	url = https://github.com/mobius3/tweeny.git
-[submodule "submodules/borealis"]
-	path = submodules/borealis
-	url = https://github.com/DarkMatterCore/borealis.git
